@@ -1,141 +1,135 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>振興五倍加碼券速查</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <meta property="og:image" content="https://onlinemad.github.io/5000-lottery/cover.webp" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-
     <script src="./js/bootstrap.bundle.min.js" type="text/javascript"></script>
 
     <style>
-        .bd-placeholder-img
-        {
+        .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
             -webkit-user-select: none;
             -moz-user-select: none;
             user-select: none;
         }
-        @media (min-width: 768px)
-        {
-            .bd-placeholder-img-lg
-            {
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
                 font-size: 3.5rem;
             }
         }
     </style>
 </head>
+
 <body class="d-flex flex-column h-100 bg-light" onload="loadUid()">
     <div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">        
-      </a>
-
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li>
-            <a href="#" class="nav-link px-2 link-secondary" aria-current="page">首頁</a>
-          </li>
-          <li>
-            <a href="https://vhpi.5000.gov.tw/" target="_blank" class="nav-link px-2 link-dark">加碼券說明</a>
-          </li>
-      </ul>
-    </header>
+            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+            </a>
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li>
+                    <a href="#" class="nav-link px-2 link-secondary" aria-current="page">首頁</a>
+                </li>
+                <li>
+                    <a href="https://vhpi.5000.gov.tw/" target="_blank" class="nav-link px-2 link-dark">加碼券說明</a>
+                </li>
+            </ul>
+        </header>
     </div>
     <main>
-    <div class="text-center container">
-    <div class="alert alert-success" role="alert">
-        <h1 class="alert-heading">振興五倍加碼券速查</h1>
-        <hr>
-        <p class="mb-0">新增【第二週】動滋券</p>
-    </div>
-    <div class="alert alert-warning d-flex align-items-center" role="alert">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
-            <use xlink:href="#exclamation-triangle-fill" />
-        </svg>
-        <div>
-            非官方，加碼券說明請看<a href="https://5000.gov.tw/" class="text-decoration-none" target="_blank">振興五倍券官網</a>
-        </div>
-    </div>
-	
-      <br />
-    <div class="mb-3" id="uidinput">
-        <textarea class="form-control" placeholder="請輸入身分證字號（至少輸入末三碼），用 , 分開多筆" id="uid"></textarea>		
+        <div class="text-center container">
+            <div class="alert alert-success" role="alert">
+                <h1 class="alert-heading">振興五倍加碼券速查</h1>
+                <hr>
+                <p class="mb-0">新增【第二週】動滋券</p>
             </div>
-	<button class="w-100 btn btn-lg btn-primary" type="button" onclick="query()">查詢</button>
-    
-    <div class="card">
-        <div class="card-body">
-            <h2 class="card-title">查詢結果</h2>
-            <p class="card-text">
-            <dl id="result"></dl>
-            </p>
-            <div id="mask" style="display:none"><button class="btn btn-secondary" onclick="mask()">
-                    碼掉身分證字號 for 截圖分享
-                </button>
+            <div class="alert alert-warning d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
+                    <use xlink:href="#exclamation-triangle-fill" />
+                </svg>
+                <div>
+                    非官方，加碼券說明請看<a href="https://5000.gov.tw/" class="text-decoration-none" target="_blank">振興五倍券官網</a>
+                </div>
+            </div>
+            <div class="mb-3" id="uidinput">
+                <textarea class="form-control" placeholder="請輸入身分證字號（至少輸入末三碼），用 , 分開多筆" id="uid"></textarea>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="button" onclick="query()">查詢</button>
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">查詢結果</h2>
+                    <p class="card-text">
+                    <dl id="result"></dl>
+                    </p>
+                    <div id="mask" style="display:none"><button class="btn btn-secondary" onclick="mask()">
+                            碼掉身分證字號 for 截圖分享
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-     </div>
-	  
-  </main>
+    </main>
     <div class="container text-center">
-        <footer class="footer mt-auto">	
-            <p>
+        <footer class="footer mt-auto">
+            <p class="fw-light text-center">
                 無廣告、無追蹤碼<br />
-                身分證字號暫存在瀏覽器內，你也可以<a href="#" onclick="clean()">清除暫存</a> <br />
-                網站以<a href="https://github.com/onlinemad/5000-lottery" target="_blank">開放原始碼方式釋出</a>
-            </p>     
- </footer>
+                身分證字號暫存在瀏覽器內，你也可以<a href="#" onclick="clean()">清除暫存</a><br />
+                頁面修改自 <a href="https://github.com/onlinemad/5000-lottery" class="link-text" target="_blank">onlinemad 的專案</a><br />
+                網站以<a href="https://github.com/abc0922001/5000-lottery" class="link-text" target="_blank">開放原始碼</a>方式釋出
+            </p>
+        </footer>
     </div>
 </body>
 
 <script>
-      let coupons = [{
-    name: '【第一週】國旅券',
-    codes: ['21', '32', '98', '67', '97', '410']
-  }, {
-    name: '【第一週】i原券',
-    codes: ['64', '85']
-  }, {
-    name: '【第一週】農遊券',
-    codes: ['89', '32', '54', '597', '453', '152']
-  }, {
-    name: '【第一週】藝fun券(數位)',
-    codes: ['96', '15', '07', '30', '73', '98', '19', '11']
-  }, {
-    name: '【第一週】藝fun券(紙本)',
-    codes: ['39', '37', '23', '36', '79', '08', '14', '75']
-  }, {
-    name: '【第一週】動滋券',
-    codes: ['97', '13', '19', '55', '71', '93', '381', '734', '644', '453', '985']
-  }, {
-    name: '【第一週】客庄劵2.0',
-    codes: ['81', '900']
-  }, {
-    name: '【第一週】地方創生券',
-    codes: ['081', '105', '594', '188', '089', '396', '521', '467', '912', '798', '358', '441', '367', '941', '335']
-  }, {
-    name: '【第二週】國旅券',
-    codes: ['87', '04', '40', '29', '71']
-  }, {
-    name: '【第二週】i原券',
-    codes: ['12', '59']
-  }, {
-    name: '【第二週】農遊券',
-    codes: ['50', '13']
-  }, {
-    name: '【第二週】藝fun券(數位)',
-    codes: ['78', '00', '39', '22', '61', '23', '15']
-  }, {
-    name: '【第二週】藝fun券(紙本)',
-    codes: ['37', '76', '31', '06', '51', '65', '81']
-  }, {
-    name: '【第二週】動滋券',
-    codes: ['91', '11', '04', '18', '57', '498', '756']
-  }]
+    let coupons = [{
+        name: '【第一週】國旅券',
+        codes: ['21', '32', '98', '67', '97', '410']
+    }, {
+        name: '【第一週】i原券',
+        codes: ['64', '85']
+    }, {
+        name: '【第一週】農遊券',
+        codes: ['89', '32', '54', '597', '453', '152']
+    }, {
+        name: '【第一週】藝fun券(數位)',
+        codes: ['96', '15', '07', '30', '73', '98', '19', '11']
+    }, {
+        name: '【第一週】藝fun券(紙本)',
+        codes: ['39', '37', '23', '36', '79', '08', '14', '75']
+    }, {
+        name: '【第一週】動滋券',
+        codes: ['97', '13', '19', '55', '71', '93', '381', '734', '644', '453', '985']
+    }, {
+        name: '【第一週】客庄劵2.0',
+        codes: ['81', '900']
+    }, {
+        name: '【第一週】地方創生券',
+        codes: ['081', '105', '594', '188', '089', '396', '521', '467', '912', '798', '358', '441', '367', '941', '335']
+    }, {
+        name: '【第二週】國旅券',
+        codes: ['87', '04', '40', '29', '71']
+    }, {
+        name: '【第二週】i原券',
+        codes: ['12', '59']
+    }, {
+        name: '【第二週】農遊券',
+        codes: ['50', '13']
+    }, {
+        name: '【第二週】藝fun券(數位)',
+        codes: ['78', '00', '39', '22', '61', '23', '15']
+    }, {
+        name: '【第二週】藝fun券(紙本)',
+        codes: ['37', '76', '31', '06', '51', '65', '81']
+    }, {
+        name: '【第二週】動滋券',
+        codes: ['91', '11', '04', '18', '57', '498', '756']
+    }]
 
     let rs = []
 
