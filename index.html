@@ -165,13 +165,13 @@
         let result = document.getElementById('result')
         result.innerHTML = ''
         _rs.map((r) => {
-            let td = document.createElement('td')
-            td.appendChild(document.createTextNode(r.id))
-            result.appendChild(td)
+            let dt = document.createElement('dt')
+            dt.appendChild(document.createTextNode(r.id))
+            result.appendChild(dt)
 
             let dd = document.createElement('dd')
             if (r.winning.length > 0) {
-                let ul = document.createElement('td')
+                let ul = document.createElement('dt')
                 r.winning.map((w) => {
                     let li = document.createElement('dd')
                     li.appendChild(document.createTextNode(w))
